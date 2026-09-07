@@ -8,3 +8,9 @@ variable "bucket_name" {
   description = "Globally unique name for the S3 static-website bucket."
   type        = string
 }
+
+variable "environment" {
+  description = "Environment tag applied to the bucket."
+  type        = string
+  default     = "dev"
+}
