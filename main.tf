@@ -14,3 +14,11 @@ resource "aws_s3_bucket" "site" {
   bucket = var.bucket_name
   tags   = local.common_tags
 }
+
+resource "aws_s3_bucket_ownership_controls" "site" {
+  bucket = aws_s3_bucket.site.id
+
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
+}
