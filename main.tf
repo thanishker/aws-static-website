@@ -57,3 +57,27 @@ resource "aws_s3_bucket_public_access_block" "site" {
   ignore_public_acls      = true
   restrict_public_buckets = false
 }
+
+data "aws_iam_policy_document" "site_public_read" {
+  statement {
+    sid       = "PublicReadForStaticWebsite"
+    effect    = "Allow"
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.site.arn}/*"]
+
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "site_public_read" {
+  bucket = aws_s3_bucket.site.id
+  policy = data.aws_iam_policy_document.site_public_read.json
+
+  depends_on = [
+    aws_s3_bucket_ownership_controls.site,
+    aws_s3_bucket_public_access_block.site,
+  ]
+}
