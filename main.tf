@@ -81,3 +81,18 @@ resource "aws_s3_bucket_policy" "site_public_read" {
     aws_s3_bucket_public_access_block.site,
   ]
 }
+
+resource "aws_s3_object" "index" {
+  bucket       = aws_s3_bucket.site.id
+  key          = "index.html"
+  source       = "${path.module}/website/index.html"
+  etag         = filemd5("${path.module}/website/index.html")
+  content_type = "text/html; charset=utf-8"
+
+  depends_on = [
+    aws_s3_bucket_ownership_controls.site,
+    aws_s3_bucket_versioning.site,
+    aws_s3_bucket_server_side_encryption_configuration.site,
+    aws_s3_bucket_policy.site_public_read,
+  ]
+}
