@@ -2,10 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Terraform S3 Static Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terraform AWS S3 Static Website</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --border: #334155;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(37, 99, 235, 0.2);
+      color: var(--accent);
+      border: 1px solid var(--primary);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      width: 100%;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.75rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .terminal-box {
+      background: #090d16;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9rem;
+      color: #38bdf8;
+      overflow-x: auto;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Deployed with Terraform on AWS S3</h1>
-  <p>Welcome to our cloud-hosted static site!</p>
+  <header>
+    <strong>Cloud Platform</strong>
+    <span class="badge">Terraform &bull; AWS S3</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Static Website on AWS S3</h1>
+      <p>Deployed with repeatable, declarative Infrastructure as Code using HashiCorp Terraform.</p>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h3>⚡ Infrastructure as Code</h3>
+        <p>Managed entirely by Terraform. Automated provisioning, version-controlled state, and repeatable environments.</p>
+      </div>
+      <div class="card">
+        <h3>🔒 Security & Encryption</h3>
+        <p>Enforced SSE-S3 AES-256 encryption, Bucket Owner Enforced ownership, and least-privilege public read policies.</p>
+      </div>
+      <div class="card">
+        <h3>📦 Versioned Hosting</h3>
+        <p>S3 object versioning enabled to protect against accidental overwrites and provide automated rollback capability.</p>
+      </div>
+    </div>
+
+    <div class="terminal-box">
+      $ terraform apply<br>
+      Apply complete! Resources: 7 added, 0 changed, 0 destroyed.<br>
+      Outputs:<br>
+      &nbsp;&nbsp;website_url = "http://your-bucket.s3-website-us-east-1.amazonaws.com"
+    </div>
+  </main>
+
+  <footer>
+    <p>Project deployed with Terraform &bull; AWS S3 Static Website</p>
+  </footer>
 </body>
 </html>
