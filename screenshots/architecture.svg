@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="320" rx="12" fill="url(#bg)"/>
+  <rect x="2" y="2" width="796" height="316" rx="10" fill="none" stroke="#334155" stroke-width="2"/>
+  
+  <text x="400" y="45" font-family="-apple-system, system-ui, sans-serif" font-size="20" font-weight="700" fill="#f8fafc" text-anchor="middle">AWS S3 Static Website Architecture</text>
+  <text x="400" y="70" font-family="-apple-system, system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">Provisioned via HashiCorp Terraform</text>
+
+  <!-- Client Box -->
+  <rect x="60" y="120" width="160" height="110" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="140" y="160" font-family="-apple-system, system-ui, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">Web Browser</text>
+  <text x="140" y="185" font-family="-apple-system, system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Public Client (HTTP)</text>
+
+  <!-- Arrow 1 -->
+  <line x1="220" y1="175" x2="330" y2="175" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="330,170 340,175 330,180" fill="#38bdf8"/>
+  <text x="280" y="165" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#38bdf8" text-anchor="middle">GET /*</text>
+
+  <!-- S3 Website Endpoint -->
+  <rect x="340" y="120" width="180" height="110" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="430" y="155" font-family="-apple-system, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">S3 Website Host</text>
+  <text x="430" y="175" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#10b981" text-anchor="middle">Public Read Policy</text>
+  <text x="430" y="195" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Index: index.html</text>
+
+  <!-- Arrow 2 -->
+  <line x1="520" y1="175" x2="590" y2="175" stroke="#38bdf8" stroke-width="2"/>
+  <polygon points="590,170 600,175 590,180" fill="#38bdf8"/>
+
+  <!-- S3 Storage Bucket -->
+  <rect x="600" y="105" width="150" height="140" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="675" y="135" font-family="-apple-system, system-ui, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">S3 Bucket</text>
+  <text x="675" y="160" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">• SSE-S3 AES-256</text>
+  <text x="675" y="180" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">• Bucket Versioning</text>
+  <text x="675" y="200" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">• BucketOwnerEnforced</text>
+  <text x="675" y="220" font-family="-apple-system, system-ui, sans-serif" font-size="11" fill="#f59e0b" text-anchor="middle">• index.html Object</text>
+</svg>

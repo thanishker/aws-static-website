@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" width="760" height="260">
+  <rect width="760" height="260" rx="8" fill="#0d1117"/>
+  <rect x="15" y="15" width="12" height="12" rx="6" fill="#ff5f56"/>
+  <rect x="35" y="15" width="12" height="12" rx="6" fill="#ffbd2e"/>
+  <rect x="55" y="15" width="12" height="12" rx="6" fill="#27c93f"/>
+  <text x="25" y="65" font-family="monospace" font-size="13" fill="#e6edf3">$ terraform apply -auto-approve</text>
+  <text x="25" y="95" font-family="monospace" font-size="13" fill="#7ee787">aws_s3_bucket.site: Creating...</text>
+  <text x="25" y="115" font-family="monospace" font-size="13" fill="#7ee787">aws_s3_bucket.site: Creation complete after 3s</text>
+  <text x="25" y="135" font-family="monospace" font-size="13" fill="#7ee787">aws_s3_object.index: Creation complete after 1s</text>
+  <text x="25" y="170" font-family="monospace" font-size="14" font-weight="bold" fill="#7ee787">Apply complete! Resources: 7 added, 0 changed, 0 destroyed.</text>
+  <text x="25" y="205" font-family="monospace" font-size="13" fill="#79c0ff">Outputs:</text>
+  <text x="25" y="225" font-family="monospace" font-size="13" fill="#d2a8ff">website_url = "http://my-static-site.s3-website-us-east-1.amazonaws.com"</text>
+</svg>
