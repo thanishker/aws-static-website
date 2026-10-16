@@ -1,0 +1,13 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Terraform files
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.hcl text eol=lf
+
+# Markdown and web files
+*.md text eol=lf
+*.html text eol=lf
+*.svg text eol=lf
+*.png binary
